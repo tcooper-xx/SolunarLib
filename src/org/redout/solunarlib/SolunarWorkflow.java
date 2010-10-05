@@ -30,15 +30,11 @@ public class SolunarWorkflow {
 		int year = Integer.parseInt(yearFormat.format(dayOf.getTime()));
 		int month = Integer.parseInt(monthFormat.format(dayOf.getTime()));
 		int day = Integer.parseInt(dayFormat.format(dayOf.getTime()));
-		System.out.println(year + " " + month + " " + day);
 		double ut = 0.0;
 		double jd = getJulianDate(year, month, day, ut);
-		System.out.println(jd);
 		double tzOffsetHours = dayOf.getTimeZone().getOffset(dayOf.getTimeInMillis())/60/60/1000;
 		double zone = tzOffsetHours/24;
-		System.out.println(zone);
 		double adjustedJulianDate = (jd - 2400000.5 - zone);
-		System.out.println(adjustedJulianDate);
 		s.setSolRST(astroWorkflow.getRST(1, adjustedJulianDate, 0.0 - lon, lat));
 		s.setMoonRST(astroWorkflow.getRST(0, adjustedJulianDate, 0.0 - lon, lat));
 		s.setMoonUnderFoot(astroWorkflow.getUnderfoot(adjustedJulianDate, lon));
