@@ -3,7 +3,7 @@ package org.redout.solunarlib;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Solunar {
+public class Solunar implements Comparable<Solunar> {
 	private Calendar dayOf;
 	private double longitude;
 	private double latitude;
@@ -77,4 +77,7 @@ public class Solunar {
 		this.dayScale = dayScale;
 	}
 	
+	public int compareTo(Solunar o) {
+		return this.dayOf.compareTo(o.dayOf);
+	}
 }
