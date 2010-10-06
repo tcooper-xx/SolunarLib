@@ -14,7 +14,7 @@ public class StringUtil {
 	        d = 0.0;
 	    }
 	/*convert times to a string*/
-	    if (d < 9.5) {
+	    if (d.intValue() < 9.5) {
 	        return(i.intValue() + ":" + "0" +d.intValue());
 	    }
 	    else {
